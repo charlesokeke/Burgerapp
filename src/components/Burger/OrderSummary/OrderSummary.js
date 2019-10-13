@@ -6,7 +6,7 @@ class OrderSummary extends Component {
 
 
     componentWillUpdate() {
-        console.log('ordersummary updated')
+        
     }
    render() {
     return (

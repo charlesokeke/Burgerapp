@@ -1,5 +1,6 @@
 import React from "react"
 import styles from "./Burger.module.css"
+import Typing from "react-typing-animation";
 import BurgerIngredient from "./BurgerIngredient/BurgerIngredient"
 
 const burger = (props) => {
@@ -12,7 +13,12 @@ const burger = (props) => {
     return (
         <div className={styles.Burger}>
             <BurgerIngredient type="bread-top" />
-                { transformedingredient.length ? transformedingredient : "Please start building your Burger"}
+                { transformedingredient.length ? transformedingredient : 
+                    <Typing loop={true} speed={10}>
+                        <span>Please start building your burger</span>
+                        <Typing.Reset count={1} delay={5000} />
+                    </Typing>
+                }
             <BurgerIngredient type="bread-bottom" />
 
         </div>

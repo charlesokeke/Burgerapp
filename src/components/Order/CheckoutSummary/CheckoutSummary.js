@@ -18,7 +18,8 @@ class CheckoutSummary extends Component {
     render() {
      return (
          <div className={styles.CheckoutSummary}>
-             <h1>Enjoy your burger</h1>
+             <h2>Enjoy your burger</h2>
+             <hr />
              <div style={{width:'100%',margin:"auto"}}>
                  <Burger ingredients={this.props.ingredients}/>
  

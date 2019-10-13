@@ -7,7 +7,7 @@ import NavigationItems from "../NavigationItems/NavigationItems"
 const toolbar = (props) => {
         return (
             <header className={styles.Toolbar}>
-                <div onClick={props.showDrawer} style={{cursor:"pointer"}}>MENU</div>
+                <div onClick={props.showDrawer} className={styles.Menu}>MENU</div>
                 <div className={styles.Logo}>
                    <Logo />
                 </div>

@@ -85,6 +85,7 @@ class ContactData extends Component {
         }
         Axios.post("/orders.json",order)
         .then(response =>{
+            console.log(response)
             this.setState({
                 loading:false,
                 showModal:false

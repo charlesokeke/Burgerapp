@@ -15,10 +15,20 @@
 .Toolbar nav {
     height:100%;
 }
+.Menu {
+ color:#fff;
+ cursor:pointer
+}
 
 .Logo {
     height: 80%;
 }
+@media (min-width:1025px) { 
+    .Menu{
+        display:none;
+    }
+ }
+
 @media (max-width: 499px) {
     .DesktopOnly{
         display:none;
