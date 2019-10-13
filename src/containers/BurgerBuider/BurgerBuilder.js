@@ -6,7 +6,7 @@ import Modal from '../../components/UI/Modal/Modal'
 import OrderSummary from "../../components/Burger/OrderSummary/OrderSummary"
 import Spinner from '../../components/UI/Spinner/Spinner'
 import withErrorHandler from "../../hoc/withErrorHandler/withErrorHandler"
-import {ADD_INGREDIENT, REMOVE_INGREDIENT, RESET_ORDER} from "../../store/actions"
+import {ADD_INGREDIENT, REMOVE_INGREDIENT, RESET_ORDER} from "../../store/action/actionTypes"
 import {connect} from "react-redux"
 import Axios from "../../axios-orders"
 
@@ -21,13 +21,6 @@ const INGREDIENT_PRICES = {
 class BurgerBuilder extends Component {
 
     state = {
-        ingredients:{
-            salad:0,
-            bacon:0,
-            meat:0,
-            cheese:0
-        },
-        totalPrice: 4,
         showModal:false,
         loading:false
     }
@@ -89,15 +82,16 @@ class BurgerBuilder extends Component {
     }
 
     continuePurchaseHandler = () => {
-        let ingredientsWithAddedPrice = {...this.props.ingredients,price:this.props.totalPrice}
-        const data = Object.entries(ingredientsWithAddedPrice).map((element => `${encodeURIComponent(element[0])}=${encodeURIComponent(element[1])}`)).join("&")
+        //let ingredientsWithAddedPrice = {...this.props.ingredients,price:this.props.totalPrice}
+       // const data = Object.entries(ingredientsWithAddedPrice).map((element => `${encodeURIComponent(element[0])}=${encodeURIComponent(element[1])}`)).join("&")
         
-        this.props.history.push({
-            pathname:"/checkout",
-            search:"?" + data 
+        //this.props.history.push({
+           // pathname:"/checkout",
+           // search:"?" + data 
 
             
-        })
+       // })
+       this.props.history.push("/checkout")
 
     }
     render(){

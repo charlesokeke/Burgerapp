@@ -1,4 +1,4 @@
-import {ADD_INGREDIENT, REMOVE_INGREDIENT,RESET_ORDER} from "./actions"
+import {ADD_INGREDIENT, REMOVE_INGREDIENT,RESET_ORDER} from "../action/actionTypes"
 
 const initialState = {
     ingredients:{

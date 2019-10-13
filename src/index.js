@@ -5,10 +5,12 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import {BrowserRouter} from "react-router-dom"
 import {Provider} from "react-redux"
-import {createStore, combineReducers} from "redux"
-import { burgerBuilderReducer }  from "./store/reducers"
+import {createStore, combineReducers, applyMiddleware, compose} from "redux"
+import thunk from "redux-thunk"
+import { burgerBuilderReducer }  from "./store/reducers/burgerBuilderReducer"
 
-const store = createStore(combineReducers({burgerBuilderReducer}))
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const store = createStore(combineReducers({burgerBuilderReducer}),composeEnhancers(applyMiddleware(thunk)))
 ReactDOM.render(<Provider store={store}><BrowserRouter><App /></BrowserRouter></Provider>, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change

@@ -1,0 +1,99 @@
+.AuthContainer {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    
+  }
+  
+  .formsignin {
+    width: 100%;
+    max-width: 420px;
+    padding: 2rem;
+    margin: auto;
+    box-shadow: 0px 2px 3px #ccc;
+  }
+  
+  .formlabelgroup {
+    position: relative;
+    margin-bottom: 1rem;
+  }
+  
+  .formlabelgroup > input,
+  .formlabelgroup > label {
+    height: 3.125rem;
+    padding: .75rem;
+  }
+  
+  .formlabelgroup > label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    margin-bottom: 0; /* Override default `<label>` margin */
+    line-height: 1.5;
+    color: #495057;
+    pointer-events: none;
+    cursor: text; /* Match the input under the label */
+    border: 1px solid transparent;
+    border-radius: .25rem;
+    transition: all .1s ease-in-out;
+  }
+  
+  .formlabelgroup input::-webkit-input-placeholder {
+    color: transparent;
+  }
+  
+  .formlabelgroup input:-ms-input-placeholder {
+    color: transparent;
+  }
+  
+  .formlabelgroup input::-ms-input-placeholder {
+    color: transparent;
+  }
+  
+  .formlabelgroup input::-moz-placeholder {
+    color: transparent;
+  }
+  
+  .formlabelgroup input::placeholder {
+    color: transparent;
+  }
+  
+  .formlabelgroup input:not(:placeholder-shown) {
+    padding-top: 1.25rem;
+    padding-bottom: .25rem;
+  }
+  
+  .formlabelgroup input:not(:placeholder-shown) ~ label {
+    padding-top: .25rem;
+    padding-bottom: .25rem;
+    font-size: 12px;
+    color: #777;
+  }
+  
+  /* Fallback for Edge
+  -------------------------------------------------- */
+  @supports (-ms-ime-align: auto) {
+    .formlabelgroup > label {
+      display: none;
+    }
+    .formlabelgroup input::-ms-input-placeholder {
+      color: #777;
+    }
+  }
+  
+  /* Fallback for IE
+  -------------------------------------------------- */
+  @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    .formlabelgroup > label {
+      display: none;
+    }
+    .formlabelgroup input:-ms-input-placeholder {
+      color: #777;
+    }
+  }
+  
