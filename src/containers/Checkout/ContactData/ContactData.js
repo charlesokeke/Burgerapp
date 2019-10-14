@@ -3,6 +3,7 @@ import styles from "./ContactData.module.css"
 import Axios from "../../../axios-orders"
 import Input from "../../../components/UI/Input/Input"
 import Spinner from "../../../components/UI/Spinner/Spinner"
+import {connect} from "react-redux"
 
 
 class ContactData extends Component {
@@ -59,7 +60,8 @@ class ContactData extends Component {
                 value:"Fastest"
             },
         },
-       loading:false
+       loading:false,
+       PlacingOrderWithoutAuthenticationError:null
     }
     checkUserInputForValue = (data) =>{
        return data.value.trim() === ""   
@@ -69,6 +71,10 @@ class ContactData extends Component {
         if(Object.values(this.state.orderForm).some(this.checkUserInputForValue)){
             alert("Please fill out all fields in the form")
             return null
+        }
+        if(!this.props.token){
+            this.setState({PlacingOrderWithoutAuthenticationError:true})
+            return false
         }
         this.setState({
             loading:true
@@ -83,7 +89,7 @@ class ContactData extends Component {
             price:this.props.price,
             orderData: transformedData    
         }
-        Axios.post("/orders.json",order)
+        Axios.post("/orders.json?auth=" + this.props.token,order)
         .then(response =>{
             console.log(response)
             this.setState({
@@ -108,6 +114,13 @@ class ContactData extends Component {
         this.setState({orderForm:updatedOrderForm})
     }
     render(){
+        let error =null
+        if(this.state.PlacingOrderWithoutAuthenticationError){
+            error =(<div className="alert alert-danger">
+                       <strong>Sorry but you have login to place order</strong> 
+                 </div>
+                 )
+        }
         const formElement = Object.entries(this.state.orderForm).map(element => ({id:element[0],config:element[1]})).map(element =>{
             return <Input 
                         key={element.id}
@@ -129,10 +142,17 @@ class ContactData extends Component {
         }
         return(
             <div className={styles.ContactData}> 
+                    {error}
                 <h4>Enter Contact Data</h4>
+
                 {form}
             </div>
         )
     }
 }
- export default ContactData
+const mapStateToProps = state => {
+    return {
+        token: state.authReducer.token
+    }
+}
+ export default connect(mapStateToProps)(ContactData)

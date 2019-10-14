@@ -1,6 +1,7 @@
 import React , {Component} from "react"
 import Order from "../../components/Order/Order"
 import Axios from "../../axios-orders"
+import {connect} from "react-redux"
 
 
 class Orders extends Component {
@@ -8,17 +9,22 @@ class Orders extends Component {
     state = {
         orders:[],
         loading: true,
-        ordersTotal:null
+        ordersTotal:null,
+        noOrders:null
     }
-     getSum =(total, num) =>  {
+
+     getSum = (total, num) =>  {
         return total + num;
       }
+
     componentDidMount(){
-        Axios.get("/orders.json")
+        Axios.get("/orders.json?auth=" + this.props.token)
          .then(response => {
+            console.log(response.data)
             if(response.data === null){
-                this.noOrders = "You have no orders"
-                
+                console.log(response.data)
+                this.setState({noOrders:"You have no orders"})
+                   
             }else{
                 let ordersTotal = []
                 let data =Object.entries(response.data).map(order =>{
@@ -27,11 +33,11 @@ class Orders extends Component {
             })
            ordersTotal = ordersTotal.reduce(this.getSum, 0).toFixed(2)
              this.setState({loading:false, orders:data,ordersTotal:ordersTotal})
-            }
-            
+            }  
          })
          .catch((error => {
-             this.setState({loading: false})
+             console.log(error)
+             this.setState({loading: false,noOrders:"You have no orders"})
          }))
     }
 
@@ -48,7 +54,7 @@ class Orders extends Component {
                     }}
                 >Total Amount:
                  {`$${this.state.ordersTotal}`}</span> :
-                  <h4 style={{textAlign:"center", color:'red'}}>{this.noOrders}</h4>
+                  <h4 style={{textAlign:"center", color:'red'}}>{this.state.noOrders}</h4>
                 }
                 {this.state.orders.map(element => {
                     return <Order price={element.price} ingredients={element.ingredients} key={element.id} />
@@ -58,4 +64,9 @@ class Orders extends Component {
     }
     
 }
-export default Orders
+const mapStateToProps = state =>{
+    return {
+        token:state.authReducer.token
+    }
+}
+export default connect(mapStateToProps)(Orders)
