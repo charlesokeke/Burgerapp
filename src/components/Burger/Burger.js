@@ -15,7 +15,7 @@ const burger = (props) => {
         <div className={styles.Burger}>
             <BurgerIngredient type="bread-top" />
                 { transformedingredient.length ? transformedingredient : 
-                <TypedString strings={["<strong>Please start build you burger</strong>","Hope you enjoy it!!"]} />
+                <TypedString strings={["<strong>Please start build you burger</strong>","Hope you enjoy it !!"]} />
                 }
             <BurgerIngredient type="bread-bottom" />
 

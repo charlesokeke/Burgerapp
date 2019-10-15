@@ -23,7 +23,7 @@ const navigationItems = (props) => {
            <Fragment><NavigationItem link="/orders">Orders</NavigationItem>
            <li className={styles.NavigationItem}>
             <NavLink
-                to={'/'}
+                to={''}
                 activeClassName={styles.active}
                 exact
                 onClick={logout}
