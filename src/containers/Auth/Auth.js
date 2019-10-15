@@ -15,9 +15,16 @@ class Auth extends Component{
         name:"",
 
     }
+    componentDidMount(){
+        console.log(this.props.location)
+    }
     componentDidUpdate() {
-        //this code is for redirection when a user log in or signs up
-        if(this.props.token){
+        //this code is for redirection when a user log in or signs up.
+        //the else if part of the conditional statement is to redirect user.
+        //who already has an order but needed to signup or in to place order
+        if(this.props.token && this.props.location.signupToOrder){
+            this.props.history.push("/checkout")
+        }else if(this.props.token){
             this.props.history.push("/")
         }
     }

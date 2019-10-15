@@ -3,6 +3,7 @@ import styles from "./ContactData.module.css"
 import Axios from "../../../axios-orders"
 import Input from "../../../components/UI/Input/Input"
 import Spinner from "../../../components/UI/Spinner/Spinner"
+import {NavLink} from 'react-router-dom'
 import {connect} from "react-redux"
 
 
@@ -116,9 +117,20 @@ class ContactData extends Component {
     render(){
         let error =null
         if(this.state.PlacingOrderWithoutAuthenticationError){
-            error =(<div className="alert alert-danger">
-                       <strong>Sorry but you have login to place order</strong> 
-                 </div>
+            error =(
+            <React.Fragment>
+                    <div className="alert alert-danger">
+                       <strong>Please login or signup to place order</strong> 
+                    </div>
+                 <NavLink  to={{
+                     pathname:"/auth",
+                     signupToOrder:true
+                    }}
+                    style={{color:"#006400",fontWeight:"bold", textDecoration:"none", cursor:"pointer"}}
+                 >
+                      Got to signup/signin
+                 </NavLink>
+             </React.Fragment>
                  )
         }
         const formElement = Object.entries(this.state.orderForm).map(element => ({id:element[0],config:element[1]})).map(element =>{
