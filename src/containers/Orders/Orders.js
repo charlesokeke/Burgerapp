@@ -56,8 +56,8 @@ class Orders extends Component {
                     boxShadow:"0 2px 3px #ccc",
                     padding:"5px"
                     }}
-                >Total Amount:
-                 {`$${this.state.ordersTotal}`}</span> :
+                >
+                 { this.state.ordersTotal > 0 ?`Total Amount:$${this.state.ordersTotal}` : "You have no orders"}</span> :
                   <h4 style={{textAlign:"center", color:'red'}}>{this.state.noOrders}</h4>
                 }
                 {this.state.orders.map(element => {
