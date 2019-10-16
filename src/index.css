@@ -5,6 +5,15 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  height: 100%;
 }
+
+html,main, #root, #root > div {
+  height: 100%;
+}
+html{
+  padding-bottom: 8rem;
+}
+
 
 

@@ -11,9 +11,9 @@ const sideDrawer = (props) => {
  
 
     return (
-        <Aux>
+        <Aux >
             <Backdrop show={props.open} closeModal={props.closeDrawer}/>
-         <div className={props.open ? styles.SideDrawer + " " + styles.Open : styles.SideDrawer + " " + styles.Close }>
+         <div className={props.open ? styles.SideDrawer + " " + styles.Open : styles.SideDrawer + " " + styles.Close } onClick={props.closeDrawer} >
              <div className={styles.Logo}>
              <Logo />
              </div>

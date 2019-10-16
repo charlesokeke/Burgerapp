@@ -2,6 +2,7 @@ import React , {Component} from "react"
 import Order from "../../components/Order/Order"
 import Axios from "../../axios-orders"
 import {connect} from "react-redux"
+import {withRouter} from "react-router-dom"
 
 
 class Orders extends Component {
@@ -18,7 +19,7 @@ class Orders extends Component {
       }
 
     componentDidMount(){
-        Axios.get("/orders.json?auth=" + this.props.token)
+        Axios.get('/orders.json?auth=' + this.props.token + '&orderBy="userId"&equalTo="' + this.props.userId + '"')
          .then(response => {
             console.log(response.data)
             if(response.data === null){
@@ -42,6 +43,9 @@ class Orders extends Component {
     }
 
     render () {
+            if(!this.props.token){
+                this.props.history.push("/")
+            }
         return (
             <div style={{position:"relative",paddingTop:"1.5rem"}}>
                 {this.state.ordersTotal ?
@@ -66,7 +70,9 @@ class Orders extends Component {
 }
 const mapStateToProps = state =>{
     return {
-        token:state.authReducer.token
+        token:state.authReducer.token,
+        userId:state.authReducer.userId
+        
     }
 }
-export default connect(mapStateToProps)(Orders)
+export default connect(mapStateToProps)(withRouter(Orders))

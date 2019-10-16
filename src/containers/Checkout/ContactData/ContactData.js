@@ -88,7 +88,8 @@ class ContactData extends Component {
         const order = {
             ingredients:this.props.ingredients,
             price:this.props.price,
-            orderData: transformedData    
+            orderData: transformedData, 
+            userId:this.props.userId   
         }
         Axios.post("/orders.json?auth=" + this.props.token,order)
         .then(response =>{
@@ -162,9 +163,11 @@ class ContactData extends Component {
         )
     }
 }
+
 const mapStateToProps = state => {
     return {
-        token: state.authReducer.token
+        token: state.authReducer.token,
+        userId:state.authReducer.userId
     }
 }
  export default connect(mapStateToProps)(ContactData)

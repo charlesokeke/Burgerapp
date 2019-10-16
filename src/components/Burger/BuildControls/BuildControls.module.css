@@ -6,7 +6,10 @@
     box-shadow: 0 2px 1px #ccc;
     margin: auto;
     padding: 10px 0;
-    background-color: #AA6817
+    background-color: #AA6817;
+    padding-top: 1rem;
+    box-sizing: border-box;
+    height: 100%;
 }
 
 .OrderButton {
