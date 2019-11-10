@@ -122,7 +122,7 @@ class Auth extends Component{
                         {this.state.signupBoxShowing ? controledFormElement : null}
 
                     <button className={styles.authButton} type="submit">Submit</button>
-                    <button className={styles.authButton} type="button" onClick={this.controlAuthFormElements}>{this.state.signinBoxShowing ? "Register form" : "Signin form"}</button>
+                    <button className={styles.authButton} type="button" onClick={this.controlAuthFormElements}>{this.state.signinBoxShowing ? "Register here" : "Signin here"}</button>
     
                 </form>)}
             </div>
