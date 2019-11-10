@@ -6,10 +6,8 @@ import {AUTO_LOGOUT} from "../../../store/action/actionTypes"
 import {connect} from "react-redux"
 
 
-
-
 const navigationItems = (props) => {
-    console.log(props)
+    
     function logout (event){
         event.preventDefault()
         props.fullLogout()
@@ -20,20 +18,21 @@ const navigationItems = (props) => {
             <NavigationItem link="/" exact>Burger Builder</NavigationItem>
            { props.token ? 
            (
-           <Fragment><NavigationItem link="/orders">Orders</NavigationItem>
-           <li className={styles.NavigationItem}>
-            <NavLink
-                to={''}
-                activeClassName={styles.active}
-                exact
-                onClick={logout}
-                > Logout</NavLink>
-        </li>
-           </Fragment>) :
+            <Fragment><NavigationItem link="/orders">Orders</NavigationItem>
+                <li className={styles.NavigationItem}>
+                    <NavLink
+                        to={''}
+                        activeClassName={styles.active}
+                        exact
+                        onClick={logout}
+                        > 
+                        Logout
+                    </NavLink>
+                </li>
+            </Fragment>
+            ) :
            <NavigationItem link="/auth">Authentication</NavigationItem>
            }
-
-
         </ul>
     )
 }

@@ -4,7 +4,6 @@ import Axios from "../../axios-orders"
 import {connect} from "react-redux"
 import {withRouter} from "react-router-dom"
 
-
 class Orders extends Component {
 
     state = {
@@ -28,12 +27,12 @@ class Orders extends Component {
                    
             }else{
                 let ordersTotal = []
-                let data =Object.entries(response.data).map(order =>{
+                let data = Object.entries(response.data).map(order =>{
                 ordersTotal.push(Number(order[1].price))
                 return {...order[1], id:order[0]} 
             })
-           ordersTotal = ordersTotal.reduce(this.getSum, 0).toFixed(2)
-             this.setState({loading:false, orders:data,ordersTotal:ordersTotal})
+                ordersTotal = ordersTotal.reduce(this.getSum, 0).toFixed(2)
+                 this.setState({loading:false, orders:data,ordersTotal:ordersTotal})
             }  
          })
          .catch((error => {
@@ -49,7 +48,8 @@ class Orders extends Component {
         return (
             <div style={{position:"relative",paddingTop:"1.5rem"}}>
                 {this.state.ordersTotal ?
-                <span style={{position:"absolute",
+                <span 
+                    style={{position:"absolute",
                     top:"10px",
                     left:"50%",
                     transform: "translate(-50%, -50%)",

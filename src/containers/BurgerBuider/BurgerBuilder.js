@@ -82,23 +82,13 @@ class BurgerBuilder extends Component {
     }
 
     continuePurchaseHandler = () => {
-        //let ingredientsWithAddedPrice = {...this.props.ingredients,price:this.props.totalPrice}
-       // const data = Object.entries(ingredientsWithAddedPrice).map((element => `${encodeURIComponent(element[0])}=${encodeURIComponent(element[1])}`)).join("&")
-        
-        //this.props.history.push({
-           // pathname:"/checkout",
-           // search:"?" + data 
-
-            
-       // })
        this.props.history.push("/checkout")
 
     }
+
     render(){
             let showSpinnerOrOrderSummary = <OrderSummary order={this.props.ingredients} totalPrice={this.props.totalPrice} cancel={this.closeModal} continue={this.continuePurchaseHandler}/>
-
             const disableInfo = {...this.props.ingredients}
-            
             for ( let key in disableInfo){
                 disableInfo[key] = disableInfo[key] <= 0
             }
@@ -107,25 +97,23 @@ class BurgerBuilder extends Component {
                 showSpinnerOrOrderSummary = <Spinner />
             }
 
-        return (
-            
-            <Aux >
+            return (
                 
-                <Modal show={this.state.showModal} closeModal={this.closeModal} >
-                    {showSpinnerOrOrderSummary}
-                </Modal>
-                <Burger ingredients={this.props.ingredients} />
-                <BuildControls 
-                    ingredientAdded= {this.addIngredient} 
-                    ingredientRemoved={this.removeIngredient}
-                    disabled={disableInfo} 
-                    price={this.props.totalPrice}
-                    handleModal={this.showModal}
-                    resetOrder={this.resetOrder}
-                 
-                 />
-            </Aux>
-        )
+                <Aux >
+                    <Modal show={this.state.showModal} closeModal={this.closeModal} >
+                        {showSpinnerOrOrderSummary}
+                    </Modal>
+                    <Burger ingredients={this.props.ingredients} />
+                    <BuildControls 
+                        ingredientAdded= {this.addIngredient} 
+                        ingredientRemoved={this.removeIngredient}
+                        disabled={disableInfo} 
+                        price={this.props.totalPrice}
+                        handleModal={this.showModal}
+                        resetOrder={this.resetOrder}
+                    />
+                </Aux>
+            )
     }
 }
 const mapStateToProps = state =>{

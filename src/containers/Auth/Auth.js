@@ -5,7 +5,6 @@ import styles from "./Auth.module.css"
 import * as actions from '../../store/action/auth'
 import Spinner from "../../components/UI/Spinner/Spinner"
 
-
 class Auth extends Component{
     state= {
         signinBoxShowing:true,
@@ -13,10 +12,9 @@ class Auth extends Component{
         password:"",
         email:"",
         name:"",
-
     }
     componentDidMount(){
-        console.log(this.props.location)
+        this.props.resetError()
     }
     componentDidUpdate() {
         //this code is for redirection when a user log in or signs up.
@@ -88,8 +86,10 @@ class Auth extends Component{
         )
         return(
             <div className={styles.AuthContainer}>
+               
                 
                 { this.props.loading ? <Spinner/> : (<form className={styles.formsignin} onSubmit={this.submitHandler}>
+                    <h2 style={{textAlign:"center"}}>Authentication</h2>
                     {error}
                     <div className={styles.formlabelgroup}>
                         <input 
@@ -121,8 +121,8 @@ class Auth extends Component{
                     </div>
                         {this.state.signupBoxShowing ? controledFormElement : null}
 
-                    <button className="btn btn-lg btn-success btn-block" type="submit">Submit</button>
-                    <button className="btn btn-lg btn-success btn-block" type="button" onClick={this.controlAuthFormElements}>{this.state.signinBoxShowing ? "Register" : "Sign in"}</button>
+                    <button className={styles.authButton} type="submit">Submit</button>
+                    <button className={styles.authButton} type="button" onClick={this.controlAuthFormElements}>{this.state.signinBoxShowing ? "Register form" : "Signin form"}</button>
     
                 </form>)}
             </div>
@@ -138,7 +138,8 @@ const mapStateToProps = state => {
 }
 const mapDispatchToProps = dispatch =>{
     return {
-        onAuth: (email, password,baseURL) => dispatch(actions.auth(email,password,baseURL))
+        onAuth: (email, password,baseURL) => dispatch(actions.auth(email,password,baseURL)),
+        resetError: () => dispatch ({type:"RESET_ERROR"})
     }
 }
 export default connect(mapStateToProps,mapDispatchToProps)(withRouter(Auth))

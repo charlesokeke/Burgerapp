@@ -1,7 +1,6 @@
 import React from "react"
 import styles from   "./Input.module.css"
 
-
 const input = (props) =>{
     let input = null
     switch(props.elementInput){

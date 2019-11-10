@@ -5,28 +5,7 @@ import CheckoutSummary from "../../components/Order/CheckoutSummary/CheckoutSumm
 import { connect } from "react-redux"
 
 class Checkout extends Component {
-    // state = {
-    //     ingredients:null,
-    //     price:0
-    // }
-
-    // componentDidMount() {
-    //     const query = new URLSearchParams(this.props.location.search)
-    //     const ingredients = {}
-    //     let price = 0
-    //     for(let params of query.entries()){
-    //         if(params[0] === "price") {
-    //             price = params[1]
-    //         }
-    //         else{
-    //             ingredients[params[0]] = parseInt(params[1])
-    //         }
-    //     }
-    //     this.setState({
-    //         ingredients:ingredients,
-    //         totalPrice: price
-    //     })
-    // }
+    
     render() {
         return (
             <div>

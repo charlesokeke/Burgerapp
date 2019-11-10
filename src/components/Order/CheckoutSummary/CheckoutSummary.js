@@ -7,7 +7,7 @@ class CheckoutSummary extends Component {
     
     render() {
         // Redirects to the root page if there are no ingredient added
-        if(Object.values(this.props.ingredients).every(element => element === 0)){
+     if(Object.values(this.props.ingredients).every(element => element === 0)){
             this.props.history.push("/")
         }
      return (

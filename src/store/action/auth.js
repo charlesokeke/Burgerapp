@@ -29,22 +29,22 @@ export const autoLogout = (expirationTime) =>{
     }
 }
 export const auth = (email, password,baseURL) => {
-        return dispatch => {
-            const authData = {
-                email:email,
-                password:password,
-                returnSecureToken:true
-            }
-            dispatch(authStart())
-            Axios.post(baseURL,authData)
-              .then(response =>{
-                    console.log(response)
-                    dispatch(authSuccess(response.data))
-                    dispatch(autoLogout(response.data.expiresIn))
-            })
-              .catch(error => {
-                console.log(error)
-                dispatch(authFail(error))
-            })
+    return dispatch => {
+        const authData = {
+            email:email,
+            password:password,
+            returnSecureToken:true
         }
+        dispatch(authStart())
+        Axios.post(baseURL,authData)
+            .then(response =>{
+                console.log(response)
+                dispatch(authSuccess(response.data))
+                dispatch(autoLogout(response.data.expiresIn))
+        })
+            .catch(error => {
+            console.log(error)
+            dispatch(authFail(error))
+        })
+    }
 }

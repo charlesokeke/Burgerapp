@@ -13,6 +13,7 @@ html,main, #root, #root > div {
 }
 html{
   padding-bottom: 8rem;
+  overflow-y: scroll;
 }
 
 

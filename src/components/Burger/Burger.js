@@ -6,19 +6,26 @@ import TypedString from "../../containers/Typed/TypedString"
 
 const burger = (props) => {
 
-    const transformedingredient = Object.keys(props.ingredients).length ? (Object.keys(props.ingredients).map((element) => {
-        return new Array(Number(props.ingredients[element])).fill(element)
-    }).reduce((acc, value) => acc.concat(value)).map((element, index) => <BurgerIngredient type={element} key={index}/>)) : []
-    
+    const transformedingredient = Object.keys(props.ingredients).length ? 
+       (Object.keys(props.ingredients)
+       .map((element) =>  new Array(Number(props.ingredients[element])).fill(element)
+       )
+       .reduce((acc, value) => acc.concat(value))
+       .map((element, index) => <BurgerIngredient type={element} key={index}/>)) : []
     
     return (
         <div className={styles.Burger}>
             <BurgerIngredient type="bread-top" />
                 { transformedingredient.length ? transformedingredient : 
-                <TypedString strings={["<strong>Welcome to burgerbuilder</strong>","<strong>Please start build you burger</strong>","<strong>Hope you enjoy it !!</strong>"]} />
+                <TypedString 
+                    strings={[
+                        "<strong>Welcome to burgerbuilder</strong>",
+                        "<strong>Please start build you burger</strong>",
+                        "<strong>Hope you enjoy it !!</strong>"
+                    ]} 
+             />
                 }
             <BurgerIngredient type="bread-bottom" />
-
         </div>
     )
 }

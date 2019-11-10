@@ -1,4 +1,4 @@
-import {AUTH_SUCCESS, AUTH_FAIL,AUTH_START, AUTO_LOGOUT} from "../action/actionTypes"
+import {AUTH_SUCCESS, AUTH_FAIL,AUTH_START, AUTO_LOGOUT, RESET_ERROR} from "../action/actionTypes"
 
 const initialState = {
     token:null,
@@ -8,6 +8,7 @@ const initialState = {
 }
 
 const authReducer = (state=initialState,action) =>{
+    
     switch(action.type){
         case AUTH_START:
             return {
@@ -36,10 +37,13 @@ const authReducer = (state=initialState,action) =>{
                 userId:null, 
                 error:null
             }
+         case RESET_ERROR:
+            return {
+                ...state,
+                error:null
+            }   
         default:
             return state
-
-
     }
 }
  export default authReducer
