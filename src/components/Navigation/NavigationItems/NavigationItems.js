@@ -22,7 +22,6 @@ const navigationItems = (props) => {
                 <li className={styles.NavigationItem}>
                     <NavLink
                         to={''}
-                        activeClassName={styles.active}
                         exact
                         onClick={logout}
                         > 
