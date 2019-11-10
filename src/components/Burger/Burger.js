@@ -20,7 +20,7 @@ const burger = (props) => {
                 <TypedString 
                     strings={[
                         "<strong>Welcome to burgerbuilder</strong>",
-                        "<strong>Please start build you burger</strong>",
+                        "<strong>Please start build your burger</strong>",
                         "<strong>Hope you enjoy it !!</strong>"
                     ]} 
              />
