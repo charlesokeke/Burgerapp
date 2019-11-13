@@ -111,3 +111,11 @@
     background: linear-gradient(#bf3813, #c45e38);
     margin: 2% auto;
 }
+@media only screen and (max-width: 600px) {
+  .BreadTop{
+    height: 30%;
+  }
+  .BreadBottom{
+    height: 20%;
+  }
+}

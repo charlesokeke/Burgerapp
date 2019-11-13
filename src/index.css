@@ -16,5 +16,9 @@ html{
   overflow-y: scroll;
 }
 
+::placeholder{
+  font-weight: 600;
+
+}
 
 

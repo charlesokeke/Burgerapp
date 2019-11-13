@@ -67,7 +67,7 @@ class Auth extends Component{
         let error = null
         if(this.props.error){
             error = (<div className="alert alert-danger">
-                        <strong>{this.props.error}</strong> 
+                        <strong>Login failed. Please try again</strong> 
                    </div>
                 )
         }
