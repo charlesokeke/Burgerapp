@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/Burgerapp/static/css/main.d2dd40f5.chunk.css",
-    "main.js": "/Burgerapp/static/js/main.a7270c45.chunk.js",
-    "main.js.map": "/Burgerapp/static/js/main.a7270c45.chunk.js.map",
+    "main.js": "/Burgerapp/static/js/main.55dbaaae.chunk.js",
+    "main.js.map": "/Burgerapp/static/js/main.55dbaaae.chunk.js.map",
     "runtime~main.js": "/Burgerapp/static/js/runtime~main.5b2d5e47.js",
     "runtime~main.js.map": "/Burgerapp/static/js/runtime~main.5b2d5e47.js.map",
     "static/js/2.dd7564da.chunk.js": "/Burgerapp/static/js/2.dd7564da.chunk.js",
     "static/js/2.dd7564da.chunk.js.map": "/Burgerapp/static/js/2.dd7564da.chunk.js.map",
     "index.html": "/Burgerapp/index.html",
-    "precache-manifest.078b13d16a239238adfef01e170a3e32.js": "/Burgerapp/precache-manifest.078b13d16a239238adfef01e170a3e32.js",
+    "precache-manifest.c96ebdccc9e9f95c4fc0e28e7d17c363.js": "/Burgerapp/precache-manifest.c96ebdccc9e9f95c4fc0e28e7d17c363.js",
     "service-worker.js": "/Burgerapp/service-worker.js",
     "static/css/main.d2dd40f5.chunk.css.map": "/Burgerapp/static/css/main.d2dd40f5.chunk.css.map",
     "static/media/burger-logo.png": "/Burgerapp/static/media/burger-logo.b8503d26.png"
