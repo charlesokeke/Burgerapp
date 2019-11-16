@@ -20,6 +20,13 @@ class Layout extends Component {
         })
 
     }
+    componentDidMount(){
+        window.scroll({
+            top: 0,
+            left: 0,
+            behavior: 'smooth'
+          });
+    }
     
     render() {
         return (
